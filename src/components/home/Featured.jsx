@@ -49,29 +49,29 @@ export class Featured extends Component {
                 role="tabpanel"
                 aria-labelledby="featured-tab"
               >
-                <ul className="products list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border my-0">
-                  <li className="product col">
+                <ul className="products list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border my-0 px-5">
+                  <li className="product col px-3">
                     <Book />
                   </li>
-                  <li className="product col">
+                  <li className="product col px-3">
                     <Book />
                   </li>
-                  <li className="product col">
+                  <li className="product col px-3">
                     <Book />
                   </li>
-                  <li className="product col">
+                  <li className="product col px-3">
                     <Book />
                   </li>
-                  <li className="product col">
+                  <li className="product col px-3">
                     <Book />
                   </li>
-                  <li className="product col">
+                  <li className="product col px-3">
                     <Book />
                   </li>
-                  <li className="product col">
+                  <li className="product col px-3">
                     <Book />
                   </li>
-                  <li className="product col">
+                  <li className="product col px-3">
                     <Book />
                   </li>
                 </ul>

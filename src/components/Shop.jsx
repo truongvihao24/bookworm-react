@@ -46,7 +46,7 @@ const Shop = () => {
                 <Book />
               </li>
             </ul>
-            <div className="row justify-content-center mx-auto">
+            <div className="row justify-content-center">
               <ul class="pagination">
                 <li class="page-item">
                   <a class="page-link" href="#">

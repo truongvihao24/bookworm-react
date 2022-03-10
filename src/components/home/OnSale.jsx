@@ -82,15 +82,36 @@ export default class OnSale extends Component {
               View All
             </button>
           </header>
-          <div className="border">
+          <div className="border px-5">
             <Slider {...settings}>
-              <Book />
-              <Book />
-              <Book />
-              <Book />
-              <Book />
-              <Book />
-              <Book />
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+              <li className="col px-3">
+                <Book />
+              </li>
+
               {/* {books.map((book) => (
                 
               ))} */}

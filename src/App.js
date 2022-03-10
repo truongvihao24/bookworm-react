@@ -13,7 +13,8 @@ export default class App extends Component {
         <Header />
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Shop />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/shop" element={<Shop />} />
           </Routes>
         </BrowserRouter>
       </Fragment>
