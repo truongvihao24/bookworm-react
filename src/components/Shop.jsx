@@ -7,7 +7,12 @@ const Shop = () => {
   return (
     <Fragment>
       <div className="container">
-        <div className="row">
+        <header className="d-md-flex align-items-center">
+          <h3 className="font-weight-bold mr-1">Books</h3>
+          <h6 className="text-secondary">(Filter by Category #)</h6>
+        </header>
+        <hr />
+        <div className="row mt-5">
           <div className="col-3">
             <FilterAccordion />
           </div>
@@ -41,6 +46,35 @@ const Shop = () => {
                 <Book />
               </li>
             </ul>
+            <div className="row justify-content-center mx-auto">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    Previous
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    3
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    Next
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
