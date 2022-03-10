@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Fragment } from "react";
 
-export default class Book extends Component {
-  render() {
-    return (
+const Book = (props) => {
+  return (
+    <Fragment>
       <div className="overflow-hidden py-3">
         <div className="card">
           <div className="d-block position-relative">
@@ -11,20 +11,25 @@ export default class Book extends Component {
               className="card-img-top img-fluid d-block mx-auto "
               alt="image-description"
             />
-            <div class="card-body">
+            <div className="card-body">
               <h5>
-                <a href="../shop/single-product-v1.html" className="card-title">
-                  The Overdue Life of Amy Byler
+                <a
+                  href="../shop/single-product-v1.html"
+                  className="card-title d-block text-truncate"
+                >
+                  {props.book_title}
                 </a>
               </h5>
               <a href="others/authors-single.html" className="card-text">
-                Jay Shetty
+                {props.author}
               </a>
-              <p className="card-text">$29</p>
+              <p className="card-text">${props.price}</p>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </Fragment>
+  );
+};
+
+export default Book;

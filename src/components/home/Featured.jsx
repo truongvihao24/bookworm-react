@@ -1,8 +1,30 @@
 import React, { Component, Fragment } from "react";
+import axios from "axios";
 import Book from "../Book";
 
 export class Featured extends Component {
+  state = {
+    recommended: [],
+    mostReviews: [],
+  };
+
+  componentDidMount() {
+    axios
+      .get(`http://bookworm-app.test/api/books/top_8_recommended`)
+      .then((res) => {
+        this.setState({ recommended: res.data });
+      });
+
+    axios
+      .get(`http://bookworm-app.test/api/books/top_8_most_reviews`)
+      .then((res) => {
+        this.setState({ mostReviews: res.data });
+      });
+  }
+
   render() {
+    const { recommended, mostReviews } = this.state;
+
     return (
       <Fragment>
         <div className="p-3">
@@ -15,27 +37,27 @@ export class Featured extends Component {
               id="featuredBooks"
               role="tablist"
             >
-              <li className="nav-item mx-5 mb-1 flex-shrink-0 flex-md-shrink-1">
+              <li className="nav-item mx-3 mb-1 flex-shrink-0 flex-md-shrink-1">
                 <a
                   className="nav-link px-0 active"
-                  id="featured-tab"
+                  id="recommended-tab"
                   data-toggle="tab"
-                  href="#featured"
+                  href="#recommended"
                   role="tab"
-                  aria-controls="featured"
+                  aria-controls="recommended"
                   aria-selected="true"
                 >
                   Recommended
                 </a>
               </li>
-              <li className="nav-item mx-5 mb-1 flex-shrink-0 flex-md-shrink-1">
+              <li className="nav-item mx-3 mb-1 flex-shrink-0 flex-md-shrink-1">
                 <a
                   className="nav-link px-0"
-                  id="onsale-tab"
+                  id="popular-tab"
                   data-toggle="tab"
-                  href="#onsale"
+                  href="#popular"
                   role="tab"
-                  aria-controls="onsale"
+                  aria-controls="popular"
                   aria-selected="false"
                 >
                   Popular
@@ -45,47 +67,38 @@ export class Featured extends Component {
             <div className="tab-content" id="featuredBooksContent">
               <div
                 className="tab-pane fade show active"
-                id="featured"
+                id="recommended"
                 role="tabpanel"
-                aria-labelledby="featured-tab"
+                aria-labelledby="recommended-tab"
               >
-                <ul className="products list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border my-0 px-5">
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
-                  <li className="product col px-3">
-                    <Book />
-                  </li>
+                <ul className="list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border my-0 px-5">
+                  {recommended.map((book) => (
+                    <li className="col px-3" key={book.id}>
+                      <Book
+                        book_title={book.book_title}
+                        author={book.author_name}
+                        price={book.final_price}
+                      />
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div
                 className="tab-pane fade"
-                id="onsale"
+                id="popular"
                 role="tabpanel"
-                aria-labelledby="onsale-tab"
+                aria-labelledby="popular-tab"
               >
-                <ul className="products list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border-top border-left my-0">
-                  <li className="product col">
-                    <Book />
-                  </li>
+                <ul className="list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border my-0 px-5">
+                  {mostReviews.map((book) => (
+                    <li className="col px-3" key={book.id}>
+                      <Book
+                        book_title={book.book_title}
+                        author={book.author_name}
+                        price={book.final_price}
+                      />
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

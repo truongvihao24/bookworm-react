@@ -9,9 +9,9 @@ export class ControlBar extends Component {
             <p className="m-0">Showing 1–12 of 126 results</p>
           </div>
           <div className="d-md-flex align-items-center">
-            <div class="dropdown mr-3">
+            <div className="dropdown mr-3">
               <a
-                class="btn btn-secondary dropdown-toggle"
+                className="btn btn-secondary dropdown-toggle"
                 href="#"
                 role="button"
                 id="dropdownMenuLink"
@@ -21,28 +21,28 @@ export class ControlBar extends Component {
                 Sort by on sale
               </a>
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a className="dropdown-item" href="#">
                   Sort by on sale
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Sort by popular
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Sort by price: low to high
                 </a>
 
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Sort by popular
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   Sort by price: high to low
                 </a>
               </div>
             </div>
-            <div class="dropdown">
+            <div className="dropdown">
               <a
-                class="btn btn-secondary dropdown-toggle"
+                className="btn btn-secondary dropdown-toggle"
                 href="#"
                 role="button"
                 id="dropdownMenuLink"
@@ -51,17 +51,17 @@ export class ControlBar extends Component {
               >
                 Show: 5
               </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a className="dropdown-item" href="#">
                   5
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   15
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   20
                 </a>
-                <a class="dropdown-item" href="#">
+                <a className="dropdown-item" href="#">
                   25
                 </a>
               </div>

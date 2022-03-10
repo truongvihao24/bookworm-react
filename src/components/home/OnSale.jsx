@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Slider from "react-slick";
 import Book from "../Book";
 
@@ -25,12 +26,16 @@ function SamplePrevArrow(props) {
 }
 
 export default class OnSale extends Component {
-  constructor() {
-    super();
+  state = {
+    books: [],
+  };
 
-    this.state = {
-      books: [],
-    };
+  componentDidMount() {
+    axios
+      .get(`http://bookworm-app.test/api/books/top_10_discount`)
+      .then((res) => {
+        this.setState({ books: res.data });
+      });
   }
 
   render() {
@@ -72,6 +77,7 @@ export default class OnSale extends Component {
     };
 
     const { books } = this.state;
+    console.log(books);
 
     return (
       <div className="p-3">
@@ -84,37 +90,15 @@ export default class OnSale extends Component {
           </header>
           <div className="border px-5">
             <Slider {...settings}>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-              <li className="col px-3">
-                <Book />
-              </li>
-
-              {/* {books.map((book) => (
-                
-              ))} */}
+              {books.map((book) => (
+                <li className="col px-3" key={book.id}>
+                  <Book
+                    book_title={book.book_title}
+                    author={book.author_name}
+                    price={book.sub_price}
+                  />
+                </li>
+              ))}
             </Slider>
           </div>
         </div>
