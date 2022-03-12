@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import Book from "../Book";
+import Book from "../common/Book";
 
 export class Featured extends Component {
   state = {
