@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
-import AccordionCatgory from "./AccordionCatgory";
-import AccordionAuthor from "./AccordionAuthor";
-import AccordionRating from "./AccordionRating";
+import AccordionCatgory from "./Accordion/AccordionCatgory";
+import AccordionAuthor from "./Accordion/AccordionAuthor";
+import AccordionRating from "./Accordion/AccordionRating";
 
 export default class Filter extends Component {
   render() {

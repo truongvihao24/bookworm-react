@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Book from "../common/Book";
+import Book from "../Common/Book";
 import Filter from "./Filter";
-import ControlBar from "./ControlBar";
+import ControlBar from "./ControlBar/ControlBar";
 
 const Shop = () => {
   const [books, setBooks] = useState([]);
