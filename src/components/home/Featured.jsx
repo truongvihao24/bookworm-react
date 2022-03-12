@@ -75,6 +75,7 @@ export class Featured extends Component {
                   {recommended.map((book) => (
                     <li className="col px-3" key={book.id}>
                       <Book
+                        book_id={book.id}
                         book_title={book.book_title}
                         author={book.author_name}
                         price={book.final_price}
@@ -93,6 +94,7 @@ export class Featured extends Component {
                   {mostReviews.map((book) => (
                     <li className="col px-3" key={book.id}>
                       <Book
+                        book_id={book.id}
                         book_title={book.book_title}
                         author={book.author_name}
                         price={book.final_price}

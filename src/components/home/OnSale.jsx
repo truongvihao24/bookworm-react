@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import Book from "../Book";
 
 function SampleNextArrow(props) {
@@ -77,22 +78,24 @@ export default class OnSale extends Component {
     };
 
     const { books } = this.state;
-    console.log(books);
 
     return (
       <div className="p-3">
         <div className="container">
           <header className="mb-5 d-md-flex justify-content-between align-items-center">
-            <h2 className="font-size-7 mb-3 mb-md-0">On Sale</h2>
-            <button href="../shop/v1.html" className="btn btn-secondary">
-              View All
-            </button>
+            <h3 className="font-size-7 font-weight-bold mb-3 mb-md-0">
+              On Sale
+            </h3>
+            <Link to="/shop">
+              <button className="btn btn-secondary">View All</button>
+            </Link>
           </header>
           <div className="border px-5">
             <Slider {...settings}>
               {books.map((book) => (
                 <li className="col px-3" key={book.id}>
                   <Book
+                    book_id={book.id}
                     book_title={book.book_title}
                     author={book.author_name}
                     price={book.sub_price}

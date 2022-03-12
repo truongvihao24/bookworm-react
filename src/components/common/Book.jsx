@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const Book = (props) => {
   return (
@@ -13,12 +14,12 @@ const Book = (props) => {
             />
             <div className="card-body">
               <h5>
-                <a
-                  href="../shop/single-product-v1.html"
+                <Link
+                  to={`/books/${props.book_id}`}
                   className="card-title d-block text-truncate"
                 >
                   {props.book_title}
-                </a>
+                </Link>
               </h5>
               <a href="others/authors-single.html" className="card-text">
                 {props.author}
