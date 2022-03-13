@@ -15,6 +15,7 @@ const ControlBar = () => {
 
   const handleLimitChange = (e) => {
     setLimit(e.currentTarget.textContent);
+    dispatch(filtersSlice.actions.setLimit(e.currentTarget.textContent));
   };
 
   return (
