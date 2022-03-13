@@ -10,7 +10,7 @@ const Book = (props) => {
             <img
               src="https://via.placeholder.com/126x196?text=+"
               className="card-img-top img-fluid d-block mx-auto "
-              alt="image-description"
+              alt=""
             />
             <div className="card-body">
               <h5>
@@ -21,7 +21,10 @@ const Book = (props) => {
                   {props.book_title}
                 </Link>
               </h5>
-              <a href="others/authors-single.html" className="card-text">
+              <a
+                href="others/authors-single.html"
+                className="card-text d-block text-truncate"
+              >
                 {props.author}
               </a>
               <p className="card-text">${props.price}</p>

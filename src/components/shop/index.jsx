@@ -1,25 +1,56 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
 import Book from "../Common/Book";
 import Filter from "./Filter";
-import ControlBar from "./ControlBar/ControlBar";
+import ControlBar from "./ControlBar";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import {
+  categorySelector,
+  authorSelector,
+  ratingSelector,
+  sortSelector,
+  limitSelector,
+  filtersSelector,
+} from "../../redux/selectors";
 
 const Shop = () => {
+  const filtersFromStore = useSelector(filtersSelector);
+  const categoryFromStore = useSelector(categorySelector);
+  const authorFromStore = useSelector(authorSelector);
+  const ratingFromStore = useSelector(ratingSelector);
+  const sortFromStore = useSelector(sortSelector);
+  const limitFromStore = useSelector(limitSelector);
   const [books, setBooks] = useState([]);
 
-  const getAllBooks = () => {
-    axios.get(`http://bookworm-app.test/api/books`).then((res) => {
-      setBooks(res.data.data);
-    });
+  const getAllBooks = (
+    category = "",
+    author = "",
+    rating = "",
+    sort = "sale",
+    limit = "5"
+  ) => {
+    axios
+      .get(`http://bookworm-app.test/api/books`, {
+        params: {
+          sortBy: sort,
+          limit: limit,
+        },
+      })
+      .then((res) => {
+        setBooks(res.data.data);
+      });
   };
 
   useEffect(() => {
-    getAllBooks();
-  }, []);
-
-  console.log(books);
-  console.log(Array.isArray(books));
+    getAllBooks(
+      categoryFromStore,
+      authorFromStore,
+      ratingFromStore,
+      sortFromStore,
+      limitFromStore
+    );
+    console.log("Updated");
+  }, [filtersFromStore]);
 
   return (
     <Fragment>
@@ -51,27 +82,27 @@ const Shop = () => {
             <div className="row justify-content-center">
               <ul className="pagination">
                 <li className="page-item">
-                  <a className="page-link" href="#">
+                  <a className="page-link" href="..">
                     Previous
                   </a>
                 </li>
                 <li className="page-item">
-                  <a className="page-link" href="#">
+                  <a className="page-link" href="..">
                     1
                   </a>
                 </li>
                 <li className="page-item">
-                  <a className="page-link" href="#">
+                  <a className="page-link" href="..">
                     2
                   </a>
                 </li>
                 <li className="page-item">
-                  <a className="page-link" href="#">
+                  <a className="page-link" href="..">
                     3
                   </a>
                 </li>
                 <li className="page-item">
-                  <a className="page-link" href="#">
+                  <a className="page-link" href="..">
                     Next
                   </a>
                 </li>
