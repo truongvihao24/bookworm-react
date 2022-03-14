@@ -63,18 +63,34 @@ const Nav = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
+                Please sign in
               </h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
-            <div className="modal-body">...</div>
+            <div className="modal-body">
+              <form class="form-signin">
+                <label for="inputEmail" class="sr-only">
+                  Email address
+                </label>
+                <input
+                  type="email"
+                  id="inputEmail"
+                  class="form-control"
+                  placeholder="Email address"
+                  required=""
+                  autofocus=""
+                />
+                <label for="inputPassword" class="sr-only">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="inputPassword"
+                  class="form-control"
+                  placeholder="Password"
+                  required=""
+                />
+              </form>
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
@@ -83,8 +99,8 @@ const Nav = () => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
+              <button type="submit" className="btn btn-primary">
+                Sign in
               </button>
             </div>
           </div>

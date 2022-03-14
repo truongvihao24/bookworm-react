@@ -16,7 +16,7 @@ const Book = (props) => {
               className="card-img-top"
               alt=""
             />
-            <div className="card-body">
+            <div className="card-body d-flex flex-column">
               <h5>
                 <Link
                   to={`/shop/${props.book_id}`}

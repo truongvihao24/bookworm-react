@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import Reviews from "./Reviews";
+import { itemsListSelector } from "../../redux/selectors";
+import { cartSlice } from "../../redux/cartSlice";
 
 const DetailedBook = () => {
   const [book, setBook] = useState({});
@@ -40,6 +43,20 @@ const DetailedBook = () => {
     setQuantity(e.target.value);
   };
 
+  const dispatch = useDispatch();
+
+  const itemsListFromStore = useSelector(itemsListSelector);
+  // console.log(itemsListFromStore);
+
+  const handleAddToCart = (id, title, price, quantity) => {
+    // console.log(e.target);
+    dispatch(cartSlice.actions.addToCart({ id, title, price, quantity }));
+  };
+
+  // const handleAddToCart = (id, title, price, quantity) => {
+  //   dispatch(cartSlice.actions.addToCart({ id, title, price, quantity }));
+  // };
+
   return (
     <Fragment>
       <div className="container mt-5 mb-6">
@@ -58,13 +75,8 @@ const DetailedBook = () => {
                         ? `http://bookworm-app.test/assets/bookcover/${book.book_cover_photo}.jpg`
                         : "https://via.placeholder.com/394x499?text=+"
                     }
-                    className="card-img-top h-100"
+                    className="card-img-top h-100 border"
                     alt=""
-                    // style={{
-                    //   width: "100%",
-                    //   height: "13vw",
-                    //   objectFit: "fit",
-                    // }}
                   />
                 </div>
                 <div className="row justify-content-center py-1">
@@ -120,9 +132,15 @@ const DetailedBook = () => {
                       +
                     </button>
                   </div>
-                </div>
-                <div className="px-5 fluid">
-                  <button href="#" className="btn btn-block btn-primary">
+                  <button
+                    className="btn btn-block btn-primary"
+                    onClick={handleAddToCart(
+                      book.id,
+                      book.book_title,
+                      book.final_price,
+                      quantity
+                    )}
+                  >
                     Add to Cart
                   </button>
                 </div>
@@ -130,7 +148,6 @@ const DetailedBook = () => {
             </div>
           </div>
         </div>
-        <Reviews />
       </div>
     </Fragment>
   );
