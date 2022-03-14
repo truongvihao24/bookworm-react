@@ -84,7 +84,11 @@ const Shop = () => {
               <Filter />
             </div>
             <div className="col-9">
-              <ControlBar />
+              <ControlBar
+                current={activePage}
+                perPage={limitFromStore}
+                total={total}
+              />
 
               <ul className="list-unstyled row row-cols-3 row-cols-lg-4 row-cols-wd-4 mb-6">
                 {books.map((book) => (

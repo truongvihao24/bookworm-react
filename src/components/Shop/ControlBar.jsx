@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { filtersSlice } from "../../redux/filtersSlice";
 
-const ControlBar = () => {
+const ControlBar = (props) => {
   const dispatch = useDispatch();
 
   const [sort, setSort] = useState("Sort by on sale");
@@ -22,7 +22,10 @@ const ControlBar = () => {
     <Fragment>
       <div className="d-lg-flex justify-content-between align-items-center text-center text-md-left pb-3">
         <div className="mb-4 m-lg-0">
-          <p className="m-0">Showing 1–12 of 126 results</p>
+          <p className="m-0">
+            Showing {(props.current - 1) * props.perPage + 1}–
+            {props.current * props.perPage} of {props.total} results
+          </p>
         </div>
         <div className="d-md-flex align-items-center">
           <div className="dropdown mr-3">

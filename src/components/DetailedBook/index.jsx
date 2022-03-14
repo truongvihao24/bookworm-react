@@ -1,10 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
-import Reviews from "./Reviews";
-import { itemsListSelector } from "../../redux/selectors";
-import { cartSlice } from "../../redux/cartSlice";
 
 const DetailedBook = () => {
   const [book, setBook] = useState({});
@@ -42,20 +38,6 @@ const DetailedBook = () => {
 
     setQuantity(e.target.value);
   };
-
-  const dispatch = useDispatch();
-
-  const itemsListFromStore = useSelector(itemsListSelector);
-  // console.log(itemsListFromStore);
-
-  const handleAddToCart = (id, title, price, quantity) => {
-    // console.log(e.target);
-    dispatch(cartSlice.actions.addToCart({ id, title, price, quantity }));
-  };
-
-  // const handleAddToCart = (id, title, price, quantity) => {
-  //   dispatch(cartSlice.actions.addToCart({ id, title, price, quantity }));
-  // };
 
   return (
     <Fragment>
@@ -132,15 +114,7 @@ const DetailedBook = () => {
                       +
                     </button>
                   </div>
-                  <button
-                    className="btn btn-block btn-primary"
-                    onClick={handleAddToCart(
-                      book.id,
-                      book.book_title,
-                      book.final_price,
-                      quantity
-                    )}
-                  >
+                  <button className="btn btn-block btn-primary mt-3">
                     Add to Cart
                   </button>
                 </div>

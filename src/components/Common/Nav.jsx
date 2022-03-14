@@ -1,11 +1,7 @@
 import React, { Fragment } from "react";
-import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { itemsCountSelector } from "../../redux/selectors";
 
 const Nav = () => {
-  const itemsCountFromStore = useSelector(itemsCountSelector);
-
   return (
     <Fragment>
       <div>
@@ -41,9 +37,7 @@ const Nav = () => {
                 <li className="nav-item nav-link">About</li>
               </NavLink>
               <NavLink to="/cart">
-                <li className="nav-item nav-link">
-                  Cart ({itemsCountFromStore})
-                </li>
+                <li className="nav-item nav-link">Cart (0)</li>
               </NavLink>
               <Link to="#/" data-toggle="modal" data-target="#exampleModal">
                 <li className="nav-item nav-link">Sign In</li>
@@ -67,41 +61,43 @@ const Nav = () => {
               </h5>
             </div>
             <div className="modal-body">
-              <form class="form-signin">
-                <label for="inputEmail" class="sr-only">
+              <form className="form-signin">
+                <label htmlFor="inputEmail" className="sr-only">
                   Email address
                 </label>
                 <input
                   type="email"
-                  id="inputEmail"
-                  class="form-control"
+                  id="email"
+                  name="email"
+                  className="form-control my-3"
                   placeholder="Email address"
                   required=""
-                  autofocus=""
+                  autoFocus=""
                 />
-                <label for="inputPassword" class="sr-only">
+                <label htmlFor="inputPassword" className="sr-only">
                   Password
                 </label>
                 <input
                   type="password"
-                  id="inputPassword"
-                  class="form-control"
+                  id="password"
+                  name="password"
+                  className="form-control"
                   placeholder="Password"
                   required=""
                 />
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Sign in
+                  </button>
+                </div>
               </form>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="submit" className="btn btn-primary">
-                Sign in
-              </button>
             </div>
           </div>
         </div>
