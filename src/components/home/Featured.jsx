@@ -71,14 +71,14 @@ export class Featured extends Component {
                 role="tabpanel"
                 aria-labelledby="recommended-tab"
               >
-                <ul className="list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border my-0 px-5">
+                <ul className="list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border px-5">
                   {recommended.map((book) => (
-                    <li className="col px-3" key={book.id}>
+                    <li className="col px-4" key={book.id}>
                       <Book
                         book_id={book.id}
                         book_title={book.book_title}
                         author={book.author_name}
-                        price={book.final_price}
+                        final_price={book.final_price}
                       />
                     </li>
                   ))}
@@ -90,14 +90,15 @@ export class Featured extends Component {
                 role="tabpanel"
                 aria-labelledby="popular-tab"
               >
-                <ul className="list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border my-0 px-5">
+                <ul className="list-unstyled row no-gutters row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-wd-6 border px-5">
                   {mostReviews.map((book) => (
-                    <li className="col px-3" key={book.id}>
+                    <li className="col px-4" key={book.id}>
                       <Book
                         book_id={book.id}
                         book_title={book.book_title}
                         author={book.author_name}
-                        price={book.final_price}
+                        final_price={book.final_price}
+                        book_cover={book.book_cover_photo}
                       />
                     </li>
                   ))}

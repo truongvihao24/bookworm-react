@@ -7,22 +7,20 @@ import Book from "../Common/Book";
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
-      className="slick-arrow slick-prev slick-active"
-      style={{ ...style, display: "block" }}
+    <button
+      className="slick-arrow slick-next slick-active btn btn-primary btn-lg bg-secondary d-block rounded-circle"
       onClick={onClick}
-    />
+    ></button>
   );
 }
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div
-      className="slick-arrow slick-next slick-active"
-      style={{ ...style, display: "block" }}
+    <button
+      className="slick-arrow slick-prev slick-active btn btn-primary btn-lg bg-secondary d-block rounded-circle"
       onClick={onClick}
-    />
+    ></button>
   );
 }
 
@@ -93,12 +91,15 @@ export default class OnSale extends Component {
           <div className="border px-5">
             <Slider {...settings}>
               {books.map((book) => (
-                <li className="col px-3" key={book.id}>
+                <li className="col px-4" key={book.id}>
                   <Book
                     book_id={book.id}
                     book_title={book.book_title}
                     author={book.author_name}
-                    price={book.sub_price}
+                    price={book.book_price}
+                    sub_price={book.sub_price}
+                    final_price={book.final_price}
+                    book_cover={book.book_cover_photo}
                   />
                 </li>
               ))}

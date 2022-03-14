@@ -1,8 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { filtersSlice } from "../../../redux/filtersSlice";
 
 const AccordionCatgory = () => {
+  const dispatch = useDispatch();
+
   const [categories, setCategories] = useState([]);
 
   const getAllCategories = () => {
@@ -14,6 +17,17 @@ const AccordionCatgory = () => {
   useEffect(() => {
     getAllCategories();
   }, []);
+
+  const handleCategoryChange = (e) => {
+    console.log(e.currentTarget.textContent);
+    if (e.currentTarget.textContent == "All") {
+      dispatch(filtersSlice.actions.setCategoryFilter(""));
+    } else {
+      dispatch(
+        filtersSlice.actions.setCategoryFilter(e.currentTarget.textContent)
+      );
+    }
+  };
 
   return (
     <Fragment>
@@ -38,14 +52,22 @@ const AccordionCatgory = () => {
           data-parent="#accordionExample"
         >
           <div className="card-body mx-5 p-0 pb-3">
+            <a
+              href="#/"
+              className="row px-3 py-1 text-reset"
+              onClick={handleCategoryChange}
+            >
+              All
+            </a>
             {categories.map((category) => (
-              <Link
-                to="/shop"
+              <a
+                href="#/"
                 className="row text-center px-3 py-1 text-reset"
                 key={category.id}
+                onClick={handleCategoryChange}
               >
                 {category.category_name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

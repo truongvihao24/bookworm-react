@@ -38,6 +38,7 @@ const ControlBar = () => {
 
             <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a
+                href="#"
                 className="dropdown-item"
                 value="sale"
                 onClick={handleSortChange}
@@ -45,6 +46,7 @@ const ControlBar = () => {
                 Sort by on sale
               </a>
               <a
+                href="#"
                 className="dropdown-item"
                 value="popular"
                 onClick={handleSortChange}
@@ -52,6 +54,7 @@ const ControlBar = () => {
                 Sort by popular
               </a>
               <a
+                href="#"
                 className="dropdown-item"
                 value="priceASC"
                 onClick={handleSortChange}
@@ -59,6 +62,7 @@ const ControlBar = () => {
                 Sort by price: low to high
               </a>
               <a
+                href="#"
                 className="dropdown-item"
                 value="priceDESC"
                 onClick={handleSortChange}
@@ -78,16 +82,16 @@ const ControlBar = () => {
               Show: {limit}
             </a>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a className="dropdown-item" onClick={handleLimitChange}>
+              <a href="#" className="dropdown-item" onClick={handleLimitChange}>
                 5
               </a>
-              <a className="dropdown-item" onClick={handleLimitChange}>
+              <a href="#" className="dropdown-item" onClick={handleLimitChange}>
                 15
               </a>
-              <a className="dropdown-item" onClick={handleLimitChange}>
+              <a href="#" className="dropdown-item" onClick={handleLimitChange}>
                 20
               </a>
-              <a className="dropdown-item" onClick={handleLimitChange}>
+              <a href="#" className="dropdown-item" onClick={handleLimitChange}>
                 25
               </a>
             </div>

@@ -4,30 +4,37 @@ import { Link } from "react-router-dom";
 const Book = (props) => {
   return (
     <Fragment>
-      <div className="overflow-hidden py-3">
-        <div className="card">
+      <div className="col overflow-hidden py-3">
+        <div className="card h-100">
           <div className="d-block position-relative">
             <img
-              src="https://via.placeholder.com/126x196?text=+"
-              className="card-img-top img-fluid d-block mx-auto "
+              src={
+                props.book_cover
+                  ? `http://bookworm-app.test/assets/bookcover/${props.book_cover}.jpg`
+                  : "https://via.placeholder.com/394x499?text=+"
+              }
+              className="card-img-top"
               alt=""
             />
             <div className="card-body">
               <h5>
                 <Link
-                  to={`/books/${props.book_id}`}
+                  to={`/shop/${props.book_id}`}
                   className="card-title d-block text-truncate"
                 >
                   {props.book_title}
                 </Link>
               </h5>
-              <a
-                href="others/authors-single.html"
-                className="card-text d-block text-truncate"
-              >
-                {props.author}
-              </a>
-              <p className="card-text">${props.price}</p>
+              <p className="card-text d-block text-truncate">{props.author}</p>
+              <p className="card-text">
+                {props.sub_price && (
+                  <Fragment>
+                    <del className="text-secondary">${props.price}</del>
+                    <span>&nbsp;</span>
+                  </Fragment>
+                )}
+                ${props.final_price}
+              </p>
             </div>
           </div>
         </div>

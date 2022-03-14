@@ -1,8 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { filtersSlice } from "../../../redux/filtersSlice";
 
 const AccordionAuthor = () => {
+  const dispatch = useDispatch();
   const [authors, setAuthors] = useState([]);
 
   const getAllAuthors = () => {
@@ -14,6 +16,17 @@ const AccordionAuthor = () => {
   useEffect(() => {
     getAllAuthors();
   }, []);
+
+  const handleAuthorChange = (e) => {
+    console.log(e.currentTarget.textContent);
+    if (e.currentTarget.textContent == "All") {
+      dispatch(filtersSlice.actions.setAuthorFilter(""));
+    } else {
+      dispatch(
+        filtersSlice.actions.setAuthorFilter(e.currentTarget.textContent)
+      );
+    }
+  };
 
   return (
     <Fragment>
@@ -38,14 +51,22 @@ const AccordionAuthor = () => {
           data-parent="#accordionExample"
         >
           <div className="card-body mx-5 p-0 pb-3">
+            <a
+              href="#/"
+              className="row px-3 py-1 text-reset"
+              onClick={handleAuthorChange}
+            >
+              All
+            </a>
             {authors.map((author) => (
-              <Link
-                to="/shop"
-                className="row text-center px-3 py-1 text-reset"
+              <a
+                href="#/"
+                className="row px-3 py-1 text-reset"
                 key={author.id}
+                onClick={handleAuthorChange}
               >
                 {author.author_name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

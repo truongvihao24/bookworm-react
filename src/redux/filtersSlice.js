@@ -4,8 +4,8 @@ const initialState = {
   category: "",
   author: "",
   rating: "",
-  sort: "",
-  limit: "",
+  sort: "sale",
+  limit: "5",
 };
 
 export const filtersSlice = createSlice({
